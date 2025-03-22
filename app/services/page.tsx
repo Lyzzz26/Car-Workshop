@@ -1,88 +1,224 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-  {/* Header */}
-  <header className="w-full bg-black/80 text-white py-4 shadow-lg z-20 sticky top-0">
-    <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
-      <div className="flex items-center">
-        <div className="relative">
-          <Link href="/">
-            <Image
-              src="/stealthx.png"
-              alt="StealthX Logo"
-              width={110}
-              height={30}
-              className="object-contain"
-            />
-          </Link>
-        </div>
-        <nav className="hidden md:flex space-x-8 ml-16">
-          <Link href="/" className="relative group text-sm font-medium tracking-wider">
-            HOME
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
-          </Link>
-          <Link href="/services" className="relative group text-sm font-medium tracking-wider">
-            SERVICES
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
-          </Link>
-          <Link href="/gallery" className="relative group text-sm font-medium tracking-wider">
-            GALLERY
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
-          </Link>
-          <Link href="/about" className="relative group text-sm font-medium tracking-wider">
-            ABOUT US
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
-          </Link>
-          <Link href="/contact" className="relative group text-sm font-medium tracking-wider">
-            CONTACT
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
-          </Link>
-        </nav>
+export default function Services() {
+  return (
+    <div className="min-h-screen flex flex-col relative">
+      {/* Background Image with Blur */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src="/bmw.jpg"
+          alt="Luxury car background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
       </div>
-      <div className="hidden md:flex items-center space-x-6">
-        <Link href="/location" className="flex items-center space-x-2 hover:text-white transition-colors">
-          <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          <span className="text-sm text-gray-300">Location</span>
-        </Link>
-        <Link href="/login" className="flex items-center space-x-2 hover:text-white transition-colors">
-          <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-          <span className="text-sm text-gray-300">Account</span>
-        </Link>
-      </div>
-    </div>
-  </header>
 
-  {/* Footer */}
-  <footer className="w-full bg-black/90 text-gray-400 text-center py-6 z-10 border-t border-gray-800">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-        <div className="text-left">
-          <h4 className="text-white text-sm font-medium mb-4">ABOUT STEALTHX</h4>
-          <p className="text-sm">Premium automotive service and performance tuning for luxury vehicles.</p>
-        </div>
-        <div className="text-left">
-          <h4 className="text-white text-sm font-medium mb-4">QUICK LINKS</h4>
-          <div className="grid grid-cols-2 gap-2">
-            <Link href="/services" className="text-sm hover:text-white transition-colors">Services</Link>
-            <Link href="/gallery" className="text-sm hover:text-white transition-colors">Gallery</Link>
-            <Link href="/location" className="text-sm hover:text-white transition-colors">Location</Link>
-            <Link href="/contact" className="text-sm hover:text-white transition-colors">Contact</Link>
+      <Header />
+
+      {/* Main Content */}
+      <main className="flex-grow flex flex-col items-center px-4 py-8 z-10 relative">
+        <div className="bg-black/50 backdrop-blur-md p-0 rounded-xl max-w-7xl w-full overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-r from-red-900/80 to-black/80 p-6">
+            <h1 className="text-3xl font-bold text-white mb-2 text-center">OUR SERVICES</h1>
+            <div className="w-20 h-1 bg-red-600 mx-auto"></div>
+          </div>
+          
+          <div className="p-8">
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Dyno Service */}
+              <div className="bg-white/10 rounded-lg overflow-hidden group hover:bg-white/15 transition-all">
+                <div className="relative h-64">
+                  <Image
+                    src="/services/dyno.jpg"
+                    alt="Dyno Testing"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="bg-white/10 backdrop-blur-md p-3 rounded-xl">
+                        <Image
+                          src="/icons/dyno.png"
+                          alt="Dyno Icon"
+                          width={40}
+                          height={40}
+                          className="w-10 h-10"
+                        />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">Dyno Testing</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-gray-300 leading-relaxed">
+                    Our state-of-the-art dynamometer facility provides precise power measurements 
+                    and performance testing. Get detailed analysis of your vehicle's horsepower, 
+                    torque, and overall performance metrics with our advanced dyno equipment.
+                  </p>
+                </div>
+              </div>
+
+              {/* Performance Parts */}
+              <div className="bg-white/10 rounded-lg overflow-hidden group hover:bg-white/15 transition-all">
+                <div className="relative h-64">
+                  <Image
+                    src="/services/parts.jpg"
+                    alt="Performance Parts"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="bg-white/10 backdrop-blur-md p-3 rounded-xl">
+                        <Image
+                          src="/icons/parts.png"
+                          alt="Parts Icon"
+                          width={40}
+                          height={40}
+                          className="w-10 h-10"
+                        />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">Performance Parts</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-gray-300 leading-relaxed">
+                    Premium performance upgrades featuring Wagner Tuning components. We offer and 
+                    install high-quality intercoolers, intake systems, and performance parts to 
+                    enhance your vehicle's capabilities.
+                  </p>
+                  <div className="mt-4 flex items-center">
+                    <span className="text-sm text-gray-400">Official Partner:</span>
+                    <Image
+                      src="/sponsors/wagner.png"
+                      alt="Wagner Tuning"
+                      width={120}
+                      height={40}
+                      className="ml-4"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* ECU Tuning */}
+              <div className="bg-white/10 rounded-lg overflow-hidden group hover:bg-white/15 transition-all">
+                <div className="relative h-64">
+                  <Image
+                    src="/services/tuning.jpg"
+                    alt="ECU Tuning"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="bg-white/10 backdrop-blur-md p-3 rounded-xl">
+                        <Image
+                          src="/icons/tuning.png"
+                          alt="Tuning Icon"
+                          width={40}
+                          height={40}
+                          className="w-10 h-10"
+                        />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">ECU Tuning</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-gray-300 leading-relaxed">
+                    Professional ECU remapping and custom tuning solutions to optimize your 
+                    vehicle's performance. Experience improved power delivery, better throttle 
+                    response, and enhanced fuel efficiency through our expert tuning services.
+                  </p>
+                </div>
+              </div>
+
+              {/* Maintenance Services */}
+              <div className="bg-white/10 rounded-lg overflow-hidden group hover:bg-white/15 transition-all">
+                <div className="relative h-64">
+                  <Image
+                    src="/services/maintenance.jpg"
+                    alt="Maintenance Services"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="bg-white/10 backdrop-blur-md p-3 rounded-xl">
+                        <Image
+                          src="/icons/maintenance.png"
+                          alt="Maintenance Icon"
+                          width={40}
+                          height={40}
+                          className="w-10 h-10"
+                        />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">Services & Maintenance</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-gray-300 leading-relaxed">
+                    Comprehensive maintenance services using premium One Way oils and fluids. 
+                    We provide professional oil changes, brake services, and complete vehicle 
+                    health checks to ensure optimal performance.
+                  </p>
+                  <div className="mt-4 flex items-center">
+                    <span className="text-sm text-gray-400">Official Oil Partner:</span>
+                    <Image
+                      src="/sponsors/oneway.png"
+                      alt="One Way"
+                      width={100}
+                      height={40}
+                      className="ml-4"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="mt-12 bg-white/10 p-6 rounded-lg">
+              <h2 className="text-xl font-bold text-white mb-4">Why Choose Our Services?</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <h3 className="text-white font-semibold mb-2">Expert Technicians</h3>
+                  <p className="text-gray-300 text-sm">
+                    Our certified technicians have years of experience with performance vehicles.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold mb-2">Quality Parts</h3>
+                  <p className="text-gray-300 text-sm">
+                    We use only premium parts and fluids from trusted manufacturers.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold mb-2">Warranty Backed</h3>
+                  <p className="text-gray-300 text-sm">
+                    All our services and installations come with warranty coverage.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="text-left">
-          <h4 className="text-white text-sm font-medium mb-4">CONNECT WITH US</h4>
-          <div className="flex space-x-4">
-            {/* Social media links removed */}
-          </div>
-        </div>
-      </div>
-      <div className="border-t border-gray-800 pt-6">
-        <p className="text-sm">© Copyright 2025 StealthX Performance. All Rights Reserved.</p>
-      </div>
+      </main>
+
+      <Footer />
     </div>
-  </footer> 
+  );
+} 

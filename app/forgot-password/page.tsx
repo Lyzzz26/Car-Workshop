@@ -34,9 +34,9 @@ export default function ForgotPassword() {
             <div className="relative">
               <Link href="/">
                 <Image
-                  src="/stealthx.png"
-                  alt="StealthX Logo"
-                  width={110}
+                  src="/garage (1).png"
+                  alt="Workshop Logo"
+                  width={130}
                   height={30}
                   className="object-contain"
                 />
@@ -99,7 +99,7 @@ export default function ForgotPassword() {
             <span>•</span>
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
             <span>•</span>
-            <span>&copy; {new Date().getFullYear()} CAR GARAGE. All Rights Reserved.</span>
+            <span>© Copyright 2025 CAR GARAGE. All Rights Reserved.</span>
           </div>
         </div>
       </footer>
