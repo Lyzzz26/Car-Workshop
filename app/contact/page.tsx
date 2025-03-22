@@ -1,51 +1,22 @@
 "use client";
 
 import Link from 'next/link';
-import { UserIcon } from '@heroicons/react/24/outline';
-import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
-export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
+export default function Contact() {
   return (
-    <div className="min-h-screen flex flex-col relative">
-      {/* Background Image with Blur */}
-      <div className="fixed inset-0 z-0">
-        <Image
-          src="/bmw.jpg" // Replace with your actual image path
-          alt="Luxury car background"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-      </div>
+    <div className="min-h-screen bg-gray-100">
 
-      {/* Header */}
-      <header className="w-full bg-black/80 text-white py-4 shadow-lg z-20 sticky top-0">
+       {/* Header */}
+       <header className="w-full bg-black/80 text-white py-4 shadow-lg z-20 sticky top-0">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
           <div className="flex items-center">
             <div className="relative">
               <Link href="/">
                 <Image
-                  src="/garage (1).png"
-                  alt="Workshop Logo"
-                  width={130}
+                  src="/stealthx.png"
+                  alt="StealthX Logo"
+                  width={110}
                   height={30}
                   className="object-contain"
                 />
@@ -72,9 +43,8 @@ export default function Home() {
                 CONTACT
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
               </Link>
-          </nav>
+            </nav>
           </div>
-          
           <div className="hidden md:flex items-center space-x-6">
             <Link href="/location" className="flex items-center space-x-2 hover:text-white transition-colors">
               <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,38 +63,73 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="flex-grow flex flex-col items-center justify-center text-center px-4 py-20 z-10 relative">
-        <div className="bg-black/40 backdrop-blur-md p-12 rounded-xl max-w-3xl mx-auto">
-          <h1 className="text-5xl font-bold text-white mb-2">CAR GARAGE</h1>
-          <h2 className="text-3xl font-light text-white mb-6">Performance Workshop</h2>
-          <div className="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
-          <p className="mt-4 text-gray-200 max-w-xl mx-auto text-lg">
-            We offer high-quality automotive repair and maintenance services with expert mechanics for luxury and performance vehicles.
-          </p>
-          <div className="mt-10 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 justify-center">
-            <Link 
-              href="/booking" 
-              className="px-8 py-4 bg-red-800 text-white rounded-lg hover:bg-red-900 transition font-medium"
-            >
-              Book Appointment
-            </Link>
-            <Link 
-              href="/services" 
-              className="px-8 py-4 bg-black/80 text-white rounded-lg hover:bg-black transition font-medium border border-gray-700"
-            >
-              View Services
-            </Link>
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Contact Us</h1>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Contact Information */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Get in Touch</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-lg font-medium text-gray-700">Address</h3>
+                <p className="text-gray-600">123 Performance Street</p>
+                <p className="text-gray-600">Automotive District</p>
+                <p className="text-gray-600">City, State 12345</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-medium text-gray-700">Phone</h3>
+                <p className="text-gray-600">(555) 123-4567</p>
+                <p className="text-gray-600">(555) 987-6543</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-medium text-gray-700">Email</h3>
+                <p className="text-gray-600">info@cargarage.com</p>
+                <p className="text-gray-600">support@cargarage.com</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-medium text-gray-700">Business Hours</h3>
+                <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
+                <p className="text-gray-600">Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Send us a Message</h2>
+            <form className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                <input type="text" id="name" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
+                <input type="tel" id="phone" name="phone" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                <textarea id="message" name="message" rows={4} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+              </div>
+              <button type="submit" className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
-      </main>
+      </div>
 
       {/* Footer */}
       <footer className="w-full bg-black/90 text-gray-400 text-center py-6 z-10 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <div className="text-left">
-              <h4 className="text-white text-sm font-medium mb-4">ABOUT CAR GARAGE</h4>
+              <h4 className="text-white text-sm font-medium mb-4">ABOUT STEALTHX</h4>
               <p className="text-sm">Premium automotive service and performance tuning for luxury vehicles.</p>
             </div>
             <div className="text-left">
@@ -150,4 +155,4 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+} 
